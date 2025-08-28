@@ -1,5 +1,3 @@
-# Predictive Maintenance for Rail Hydraulic/Compressor Systems
-
 ## 1. Overview
 This project builds a predictive maintenance pipeline that estimates the **Remaining Useful Life (RUL)** of train hydraulic/compressor systems.  
 Instead of only classifying *failure vs. no failure*, the system forecasts **how many minutes remain before a failure event**.  
@@ -13,26 +11,27 @@ This enables early maintenance scheduling, reduced downtime, and improved reliab
 We use the **MetroPT-3 dataset** (real metro compressor/hydraulic IoT signals) hosted by UCI:  
 [MetroPT-3 Dataset Link](https://archive.ics.uci.edu/dataset/791/metropt%2B3%2Bdataset?utm_source=chatgpt.com)
 
-\`\`\`bash
+```bash
 # Download dataset
 wget https://archive.ics.uci.edu/static/public/791/metropt+3+dataset.zip -O metropt3.zip
 
 # Unzip
 unzip metropt3.zip -d data/raw/
-\`\`\`
+```
 
 ### Upload to AWS S3
 Replace `<your-bucket>` with your S3 bucket name:
 
-\`\`\`bash
+```bash
 # Upload dataset to S3
 aws s3 cp data/raw/ s3://<your-bucket>/metropt3/ --recursive
-\`\`\`
+```
 
 ---
 
 ## 3. Repository Structure
-\`\`\`
+
+```text
 rail-predictive-maintenance/
 ├── data/               # Raw & processed datasets (MetroPT-3, weather, census enrichments)
 ├── notebooks/          # Jupyter notebooks for ETL, modeling, comparison
@@ -50,7 +49,7 @@ rail-predictive-maintenance/
 ├── docs/               # Paper, figures, writeups
 ├── requirements.txt    # Python dependencies
 └── README.md
-\`\`\`
+```
 
 ---
 
@@ -76,7 +75,7 @@ rail-predictive-maintenance/
 ---
 
 ## 7. How to Run
-\`\`\`bash
+```bash
 # Clone repo
 git clone <your_repo_url>
 cd rail-predictive-maintenance
@@ -94,25 +93,24 @@ python src/train_models.py
 
 # Evaluate
 python src/evaluate.py
-\`\`\`
+```
 
 ---
 
 ## 8. Deployment
 Containerized with Docker:
 
-\`\`\`bash
+```bash
 docker build -t rail_maintenance .
 docker run rail_maintenance
-\`\`\`
+```
 
 ---
 
 ## 9. Deliverables
 - ETL Pipeline (PySpark + Python)  
 - Modeling Notebooks (RF, XGB, LSTM, GRU)  
-- Comparison Report (PDF in \`/docs/\`)  
+- Comparison Report (PDF in `/docs/`)  
 - Dashboards (Tableau Public, Power BI Desktop)  
 - Docker Container (deploy-ready)  
-- Loom Walkthrough (linked in docs & README)  
-"""
+- Loom Walkthrough (linked in docs & README) 
