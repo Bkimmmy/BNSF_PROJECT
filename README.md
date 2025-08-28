@@ -51,14 +51,22 @@ We benchmark classical ML vs. deep learning to answer:
 ---
 
 ## 2. Data Sources
-**MetroPT-3 (UCI)** — public stand-in for BNSF telemetry. Replace with internal feeds when available.
-- Motor current, oil temperature, DV pressure
-- Digital valve signals (COMP, MPG, LPS)
-- GPS, failure labels
 
-**Weather (NOAA/NWS APIs)** — joined by timestamp/GPS.
+### MetroPT Dataset (Zenodo Repository)
+We use the **MetroPT: A Benchmark dataset for predictive maintenance** hosted on Zenodo.  
+This dataset was collected in 2022 as part of the XPM project with Porto’s metro system. It includes:
 
-**Geospatial (Census TIGER / OpenStreetMap)** — optional segmentation by track/region.
+- **Analog signals**: pressure, temperature, current consumption  
+- **Digital signals**: control & discrete valve signals (COMP, MPG, LPS)  
+- **GPS signals**: latitude, longitude, speed  
+- **Failure labels**: annotated for predictive maintenance tasks  
+
+📥 **Download Link (Zenodo, v1, 2022):**  
+[https://doi.org/10.5281/zenodo.6854240](https://doi.org/10.5281/zenodo.6854240)
+
+**Files Provided**
+- `dataset_train.csv` (1.6 GB) — contains IoT logs with analog, digital, and GPS signals.  
+
 
 **[INSERT TABLE: data dictionaries & sample sizes]**
 
