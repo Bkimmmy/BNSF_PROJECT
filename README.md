@@ -21,6 +21,10 @@ We benchmark classical ML (Random Forest, XGBoost) against deep learning (LSTM, 
 ## 2. Data Sources
 
 ### MetroPT-3 Dataset (UCI Repository)
+
+[MetroPT-3 Dataset (UCI Repository)](https://archive.ics.uci.edu/dataset/791/metropt%2B3%2Bdataset?utm_source=chatgpt.com)
+
+
 Real-world IoT logs from metro train compressors, including:
 - Motor current
 - Oil temperature
