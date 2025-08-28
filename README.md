@@ -1,49 +1,73 @@
-# Predictive Maintenance for Rail Hydraulic/Compressor Systems
+Predictive Maintenance for Rail Hydraulic/Compressor Systems
+1. Overview
 
-## Overview
-This project builds a predictive maintenance pipeline that estimates the Remaining Useful Life (RUL) of train hydraulic/compressor systems.  
-Instead of only classifying "failure vs. no failure," the system forecasts how many minutes remain before a failure event.  
-This enables early maintenance scheduling, reduced downtime, and improved system reliability.
+This project builds a predictive maintenance pipeline that estimates the Remaining Useful Life (RUL) of train hydraulic/compressor systems.
+Instead of only classifying failure vs. no failure, the system forecasts how many minutes remain before a failure event.
+This enables early maintenance scheduling, reduced downtime, and improved reliability.
 
-## Repository Structure
+2. Data Setup
+Download Dataset
+
+We use the MetroPT-3 dataset (real metro compressor/hydraulic IoT signals) hosted by UCI:
+MetroPT-3 Dataset Link
+
+# Download dataset
+wget https://archive.ics.uci.edu/static/public/791/metropt+3+dataset.zip -O metropt3.zip
+
+# Unzip
+unzip metropt3.zip -d data/raw/
+
+Upload to AWS S3
+
+Replace <your-bucket> with your S3 bucket name:
+
+# Upload dataset to S3
+aws s3 cp data/raw/ s3://<your-bucket>/metropt3/ --recursive
+
+3. Repository Structure
 rail-predictive-maintenance/
-├── data/ # Raw & processed datasets (MetroPT-3, weather, census enrichments)
-├── notebooks/ # Jupyter notebooks for ETL, modeling, comparison
-│ ├── 01_etl_preprocessing.ipynb
-│ ├── 02_modeling_rf_xgb_lstm.ipynb
-│ ├── 03_model_comparison.ipynb
-│ └── 04_dashboard_prep.ipynb
-├── src/ # Python scripts for clean pipeline code
-│ ├── etl_pipeline.py
-│ ├── train_models.py
-│ └── evaluate.py
-├── models/ # Trained models (pickle/Torch)
-├── dashboards/ # Tableau / Power BI dashboards
-├── docker/ # Dockerfile & compose for containerization
-├── docs/ # Paper/PDF writeup, math appendix, figures
-├── requirements.txt # Python dependencies
-└── README.md # Project overview
+├── data/               # Raw & processed datasets (MetroPT-3, weather, census enrichments)
+├── notebooks/          # Jupyter notebooks for ETL, modeling, comparison
+│   ├── 01_etl_preprocessing.ipynb
+│   ├── 02_modeling_rf_xgb_lstm.ipynb
+│   ├── 03_model_comparison.ipynb
+│   └── 04_dashboard_prep.ipynb
+├── src/                # Python scripts for clean pipeline code
+│   ├── etl_pipeline.py
+│   ├── train_models.py
+│   └── evaluate.py
+├── models/             # Trained models (pickle/Torch)
+├── dashboards/         # Tableau / Power BI dashboards
+├── docker/             # Dockerfile & docker-compose
+├── docs/               # Paper, figures, writeups
+├── requirements.txt    # Python dependencies
+└── README.md
 
-bash
-Copy code
+4. Data Sources
 
-## Data Sources
-- **MetroPT-3 Dataset**: Real metro compressor/hydraulic IoT signals (pressure, current, temp, GPS).  
-- **Weather Data**: Enriched via NWS/NOAA APIs.  
-- **Census / GIS Data**: Geospatial enrichment for routes and station-level patterns.  
+MetroPT-3 Dataset: IoT signals (pressure, current, temp, GPS).
 
-## Models Tested
-- Random Forest  
-- XGBoost  
-- LSTM / GRU (deep learning baselines)
+Weather Data: NWS/NOAA APIs for environmental enrichment.
 
-## Results
-- Random Forest → lowest MAE (~2.3 min)  
-- XGBoost → best RMSE (~12.2 min) and R² (~0.57)  
-- LSTM/GRU → explored but underperformed (documented in comparison)  
+Census / GIS Data: For route and station-level geospatial patterns.
 
-## How to Run
-```bash
+5. Models Tested
+
+Random Forest
+
+XGBoost
+
+LSTM / GRU (deep learning baselines)
+
+6. Results
+
+Random Forest → lowest MAE (~2.3 min)
+
+XGBoost → best RMSE (~12.2 min), R² (~0.57)
+
+LSTM/GRU → explored but underperformed (documented in comparison)
+
+7. How to Run
 # Clone repo
 git clone <your_repo_url>
 cd rail-predictive-maintenance
@@ -61,22 +85,26 @@ python src/train_models.py
 
 # Evaluate
 python src/evaluate.py
-Deployment
-Dockerized pipeline:
 
-bash
-Copy code
+8. Deployment
+
+Containerized with Docker:
+
 docker build -t rail_maintenance .
 docker run rail_maintenance
-Deliverables
+
+9. Deliverables
+
 ETL Pipeline (PySpark + Python)
 
 Modeling Notebooks (RF, XGB, LSTM, GRU)
 
-Comparison Report (math + metrics, PDF in /docs/)
+Comparison Report (PDF in /docs/)
 
 Dashboards (Tableau Public, Power BI Desktop)
 
 Docker Container (deploy-ready)
 
 Loom Walkthrough (linked in docs & README)
+
+ChatGPT can make mistakes. Check important info.
