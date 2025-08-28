@@ -31,13 +31,7 @@ Real-world IoT logs from metro train compressors, including:
 - DV pressure
 - Digital valve signals (COMP, MPG, LPS)
 - GPS location
-- Failure labels
-
-### Weather Data (NOAA/NWS APIs)
-Matched by GPS and timestamp to capture environmental effects (temperature, humidity, pressure).
-
-### Geospatial Data (Census TIGER / OpenStreetMap) *(optional)*
-Maps each GPS point to rail segments to check if route-level factors influence failures.
+- Failure labels.
 
 ---
 
