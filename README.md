@@ -145,10 +145,13 @@ rail-predictive-maintenance/
 ### 5.3 Evaluation (`src/evaluate.py`)
 Metrics: MAE, RMSE, R², sMAPE + accuracy within tolerances (≤5, ≤10 min).
 
-![Predicted vs Actual RUL](docs/figures/lstm_forest_xgboost.png)  
-![Residuals vs Actual](docs/figures/lstm_forest_xgboost1.png)  
-![Error Distribution Histogram](docs/figures/lstm_forest_xgboost2.png)  
-![Feature Importance (XGBoost)](docs/figures/lstm_forest_xgboost3.png)
+![Predicted vs Actual RUL](docs/lstm_forest_xgboost.png)  
+![Residuals vs Actual](docs/lstm_forest_xgboost1.png)  
+![Error Distribution Histogram](docs/lstm_forest_xgboost2.png)  
+![Feature Importance (XGBoost)](docs/lstm_forest_xgboost3.png)  
+![Feature Importance (Random Forest)](docs/lstm_forest_xgboost4.png)  
+![Model Comparison (RF/XGB/LSTM)](docs/Lstm_xgboost_randomforest_1.png)
+
 
 
 ### 5.4 Dashboards (`/dashboards`, `/docs/figures`)
