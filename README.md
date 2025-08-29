@@ -101,15 +101,21 @@ rail-predictive-maintenance/
 
 ## 4. EDA Summary
 - Sensor ranges & distributions  
-  **[INSERT FIGURE: histograms/boxplots — X HERE]**
+  ![Sensor Distributions (Histograms)](docs/sensor_distributions.png)  
+  ![Sensor Boxplots](docs/sensor_boxplots.png)
+
 - Outliers and missingness  
-  **[INSERT FIGURE: missingness bar — X HERE]**
+  *(Missingness plot to be added)*
+
 - Correlation matrix across signals  
-  **[INSERT FIGURE: correlation heatmap — X HERE]**
+  ![Correlation Heatmap](docs/correlation_heatmap_features.png)
+
 - Rolling-window stability checks  
-  **[INSERT FIGURE: moving mean/variance — X HERE]**
+  ![Sensor Trends Before Failure (Mean ± Std)](docs/sensor_trends_mean_std.png)
+
 - Exported summaries to `/docs/summary/*.csv` for dashboards  
-  **[INSERT TABLE: feature summary sample — X HERE]**
+  *(Feature summary table to be added)*
+
 
 ---
 
@@ -123,7 +129,7 @@ rail-predictive-maintenance/
 - Create **failure labels** (COMP=0, MPG=0, LPS=0)
 - Compute **RUL** using next-failure distance in minutes
 
-**[INSERT FIGURE: ETL architecture diagram — X HERE]**
+![ETL Architecture](docs/figures/etl_architecture.png)
 
 ### 5.2 Modeling (`src/train_models.py`)
 - Random Forest (baseline)
@@ -139,9 +145,11 @@ rail-predictive-maintenance/
 ### 5.3 Evaluation (`src/evaluate.py`)
 Metrics: MAE, RMSE, R², sMAPE + accuracy within tolerances (≤5, ≤10 min).
 
-**[INSERT FIGURE: Predicted vs Actual RUL — X HERE]**  
-**[INSERT FIGURE: Error histogram + residual plot — X HERE]**  
-**[INSERT FIGURE: Feature importance / SHAP summary — X HERE]**
+![Predicted vs Actual RUL](docs/figures/lstm_forest_xgboost.png)  
+![Residuals vs Actual](docs/figures/lstm_forest_xgboost1.png)  
+![Error Distribution Histogram](docs/figures/lstm_forest_xgboost2.png)  
+![Feature Importance (XGBoost)](docs/figures/lstm_forest_xgboost3.png)
+
 
 ### 5.4 Dashboards (`/dashboards`, `/docs/figures`)
 What the dashboard shows:
@@ -152,14 +160,15 @@ What the dashboard shows:
 - Drill-through from alert list → unit history → recommended action
 - Export buttons for maintenance worklists
 
-**[INSERT IMAGE: Dashboard overview screenshot — X HERE]**
+![Dashboard Overview](docs/figures/dashboard_overview.png)
 
 ### 5.5 Deployment (`/docker`)
 - Containerized CLI + API
 - Optional: `docker-compose.yml` for ETL + training services
 - AWS path: ECR → ECS/Fargate or Lambda + API Gateway
 
-**[INSERT DIAGRAM: deployment topology — X HERE]**
+![Deployment Topology](docs/figures/deployment_topology.png)
+
 
 ---
 
@@ -239,8 +248,8 @@ aws s3 cp data/raw/ s3://<your-bucket>/metropt3/ --recursive
 - Simulate IoT input → REST inference → log predictions
 - Track drift (feature & label where available)
 - Alert on model/ETL failures
+![Monitoring Dashboard](docs/figures/monitoring_dashboard.png)
 
-**[INSERT FIGURE: monitoring dashboard — X HERE]**
 
 ---
 
@@ -253,8 +262,11 @@ aws s3 cp data/raw/ s3://<your-bucket>/metropt3/ --recursive
 - ✅ Loom walkthrough link
 - ✅ `/docs/figures/` with embedded images in README
 
-**[INSERT LINK: Loom walkthrough — X HERE]**  
-**[INSERT IMAGE: 2–3 EDA screenshots — X HERE]**
+[Loom Walkthrough](https://www.loom.com/share/your-link-here)  
+
+![EDA Screenshot 1](docs/figures/sensor_distributions.png)  
+![EDA Screenshot 2](docs/figures/correlation_heatmap_features.png)
+
 
 ---
 
