@@ -1,6 +1,8 @@
 # BNSF Rail Predictive Maintenance
 **Forecasting Remaining Useful Life (RUL) of train compressor/hydraulic systems**
 
+loom breakdown: https://www.loom.com/share/c2839839930f46f69e5d78a72f81a77a
+
 ---
 
 ## 0. Executive Summary (Business Problem)
@@ -17,6 +19,7 @@ Goal: predict **RUL in minutes** for each unit to enable planned maintenance bef
 **Actionable output**
 - `rul_minutes` + risk band (Critical/High/Medium/Low)
 - Recommended action and lead time (e.g., “swap unit within 90 minutes”)
+  
 
 ### Business flow (ASCII) — replace with figure later
 ```text
