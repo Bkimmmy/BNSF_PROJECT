@@ -204,14 +204,13 @@ What the dashboard shows:
   - If ≤10-min accuracy improves from 90%→97%, expected missed-swaps drop → **increase OTP** and reduce **delay minutes**.
   - A 20% reduction in unexpected set-outs raises **MTBF** and lowers **cost delta**.
 
-**[INSERT TABLE: example scenario and ROI — X HERE]**
 
 ---
 
 ## 8. How to Run
 ```bash
 # Clone
-git clone https://github.com/<your-username>/rail-predictive-maintenance.git
+git clone https://github.com/Bkimmmy/BNSF_PROJECTe.git
 cd rail-predictive-maintenance
 
 # Env
